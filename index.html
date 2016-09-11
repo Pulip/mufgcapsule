@@ -23,23 +23,36 @@
         <h2></h2>
         <a href="https://github.com/Pulip/mufgcapsule" class="button"><small>View project on</small> GitHub</a>
       </div>
+      <script type="text/javascript">
+		windows.onload=function(){
+			displayClientTime();
+			requestTime();
+		}
+		function displayClientTime(){
+			var now = new Date();
+			var displayTime=now.getFullYear()+"."+(now.getMonth()+1)+"."+now.getDate()+" - "+now.getHours()+":"+now.getMinutes()+":"+now.getSeconds();
+			var timeSpan=document.getElementById("clientTimeSpan");
+			timeSpan.innetHTML=displayTime;
+			setTimeout(displayClientTime, 500);
+		}
+		function requestTime(){
+			sendRequest("clockAjax.jsp",null,displayServerTime,"GET"
+			setTimeout(requestTime,500);
+		}
+		function displayServerTime() {
+			if(httpRequest.readyState==4){
+				if(httpReuest.status==200){
+					var timeSpan=document.getElementById("serverTimeSpan");
+					timeSpan.innerHTML = httpRequest.responseText;
+				}
+			}
+		}
+	</script>
     </header>
 
     <div id="content-wrapper">
       <div class="inner clearfix">
         <section id="main-content">
-        <script type="text/javascript">
-		function getServerTime(){
-			var xhr = new XMLHttpRequest();  
-			xhr.open("GET", "https://pulip.github.io/mufgcapsule/", false);  
-			xhr.send(null);
-			eval("reg.timer").value = xhr.getResponseHeader("Date");
-			xhr = null;
-		}
-		window.setInterval("getServerTime();",500);
-	</script>
-	<form name="reg">
-	<input type="text" name="timer" size="30%"><br>
           <h3>
 <a id="welcome-to-github-pages" class="anchor" href="#welcome-to-github-pages" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Welcome to GitHub Pages.</h3>
 
@@ -64,6 +77,10 @@
 <a id="support-or-contact" class="anchor" href="#support-or-contact" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Support or Contact</h3>
 
 <p>Having trouble with Pages? Check out our <a href="https://help.github.com/pages">documentation</a> or <a href="https://github.com/contact">contact support</a> and we’ll help you sort it out.</p>
+	<h3>클라이언트시간</h3>
+	<div><span id="clientTimeSpan">NNNN.NN.NN - NN:NN:NN</span></div>
+	<div>
+	
         </section>
 
         <aside id="sidebar">
