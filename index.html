@@ -28,19 +28,18 @@
     <div id="content-wrapper">
       <div class="inner clearfix">
         <section id="main-content">
-          <script type="text/javascript">
-	function getServerTime(){
-		var xhr = new XMLHttpRequest();  
-		xhr.open("GET", "http://uiandwe.tistory.com/", false);  
-		xhr.send(null);
-		eval("reg.timer").value = xhr.getResponseHeader("Date");
-		xhr = null;
-	}
-
-	window.setInterval("getServerTime();",1000);
-</script>
-<form name="reg" style="color: rgb(51, 51, 51); font-family: 굴림; line-height: 1.5; font-size: 9pt; ">
-<input type="text" name="timer" size="30%"><br>
+        <script type="text/javascript">
+		function getServerTime(){
+			var xhr = new XMLHttpRequest();  
+			xhr.open("GET", "https://pulip.github.io/mufgcapsule/", false);  
+			xhr.send(null);
+			eval("reg.timer").value = xhr.getResponseHeader("Date");
+			xhr = null;
+		}
+		window.setInterval("getServerTime();",500);
+	</script>
+	<form name="reg">
+	<input type="text" name="timer" size="30%"><br>
           <h3>
 <a id="welcome-to-github-pages" class="anchor" href="#welcome-to-github-pages" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Welcome to GitHub Pages.</h3>
 
